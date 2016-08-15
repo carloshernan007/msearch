@@ -12,7 +12,7 @@ class Client {
     /**
      * @var string
      */
-    protected $_key = 'XXX-XXXX-XXXX';
+    protected $_key = 'bb92f24b10739a63ee863c947ada740f';
     /**
      * @var \Curl\Curl
      */
