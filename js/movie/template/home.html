@@ -1,0 +1,80 @@
+<!-- Slider -->
+<div class="row  content-carousel">
+    <div class="col-lg-12">
+
+        <div>
+            <carousel interval="myInterval">
+                <slide ng-repeat="slide in slides" active="slide.active">
+                    <a href="#/movie/{{slide.id}}">
+                    <img ng-src="{{slide.image}}">
+                    </a>
+                </slide>
+            </carousel>
+        </div>
+
+    </div>
+</div>
+<!-- End Slider -->
+
+<!-- Recomendation -->
+
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title"> TOP 10</h3>
+            </div>
+            <div class="panel-body top-10">
+                <div class="row" ng-repeat="item in popular  | limitTo:10">
+                    <a href="#/movie/{{item.id}}">
+                    <div class="col-xs-12 col-lg-4 col-sm-4 col-md-4">
+                        <img  alt="{{item.title}}" ng-src="{{item.poster_path|pathUrl}}">
+                    </div>
+                    <div class="col-lg-12 col-lg-8 col-sm-8 col-md-8">
+                        <div class="description">
+                            <h3>{{item.title}}</h3>
+                            <ul class="genres">
+                                <li ng-repeat="g in item.genre_ids">
+                                    <span class="label label-default">{{genres[g]}}</span>
+                                </li>
+                            </ul>
+                            <p>{{item.overview | limitTo:250}}{{item.overview.length > 250 ? '...' : ''}}</p>
+                            <div class="small text-right"><i class="glyphicon glyphicon-calendar"></i> {{item.release_date| date:'MM/dd/yyyy'}}</div>
+                        </div>
+                    </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Last Movies</h3>
+            </div>
+            <div class="panel-body top-10">
+                <div class="row" ng-repeat="item in lastMovie  | limitTo:10">
+                    <a href="#/movie/{{item.id}}">
+                    <div class="col-xs-12 col-lg-4 col-sm-4 col-md-4">
+                        <img  alt="{{item.title}}" ng-src="{{item.poster_path|pathUrl}}">
+                    </div>
+                    <div class="col-lg-12 col-lg-8 col-sm-8 col-md-8">
+                        <div class="description">
+                            <h3>{{item.title}}</h3>
+                            <ul class="genres">
+                                <li ng-repeat="g in item.genre_ids">
+                                    <span class="label label-default">{{genres[g]}}</span>
+                                </li>
+                            </ul>
+                            <p>{{item.overview | limitTo:250}}{{item.overview.length > 250 ? '...' : ''}}</p>
+                            <div class="small text-right"><i class="glyphicon glyphicon-calendar"></i> {{item.release_date| date:'MM/dd/yyyy'}}</div>
+                        </div>
+                    </div>
+                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- End Recomendation -->

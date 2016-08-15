@@ -1,0 +1,14 @@
+{
+    "name": "msearch",
+    "description": "Movie search for nice people",
+    "require": {
+        "php": ">=5.6.0",
+        "curl/curl": "^1.4"
+    },
+    "authors": [
+        {
+            "name": "Carlos Hernan Aguilar",
+            "email": "carloshernan007@gmail.com"
+        }
+    ]
+}

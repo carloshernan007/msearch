@@ -1,0 +1,49 @@
+<h3 id="progress-basic">
+    {{response.person.name}}
+</h3>
+<div class="progress">
+    <div class="progress-bar progress-bar-info" style="width:100%"></div>
+</div>
+
+<div class="person" ng-cloak>
+  <div class="row">
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+          <img ng-src="{{ response.person.profile_path |pathUrl}}" alt="">
+      </div>
+      <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+         <p>{{response.person.biography}}</p>
+         <p class="text-right"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> {{response.person.birthday| date:'MM/dd/yyyy'}} </p>
+      </div>
+  </div>
+</div>
+
+<h3>Movies</h3>
+<div class="progress">
+    <div class="progress-bar progress-bar-info" style="width:100%"></div>
+</div>
+
+<div class="list-movie">
+    <table class="table table-striped table-hover ">
+        <thead>
+        <tr>
+            <th>Poster</th>
+            <th>Title</th>
+            <th>Release Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="movie in response.movies.cast  | orderBy:'release_date'"
+            data-id="{{movie.id}}"
+             get-movie>
+            <td><img ng-src="{{ movie.poster_path|pathUrlMini}}"> </td>
+            <td>{{ movie.title}}</td>
+            <td>{{movie.release_date| date:'MM/dd/yyyy'}}</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<ul class="pager">
+    <li class="previous "><a href="javascript:history.back(1)">← Return</a></li>
+</ul>

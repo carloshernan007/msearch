@@ -1,0 +1,56 @@
+<h3 id="progress-basic">
+    {{response.movie.title}}
+</h3>
+<div class="progress">
+    <div class="progress-bar progress-bar-info" style="width:100%"></div>
+</div>
+
+<div class="movie-info" ng-cloak>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+            <img ng-src="{{ response.movie.poster_path |pathUrl}}" alt="">
+        </div>
+        <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+            <h4 class="text-right"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>{{response.movie.vote_average}}
+            </h4>
+            <p>{{response.movie.overview}}</p>
+            <ul>
+                <li ng-repeat="genre in response.movie.genres">
+                    <span class="label label-default">{{ genre.name }}</span>
+                </li>
+            </ul>
+            <p class="text-right small"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+                {{response.movie.release_date| date:'MM/dd/yyyy'}} </p>
+            <p class="text-right small"><span class="glyphicon glyphicon-signal" aria-hidden="true"></span>
+                {{response.movie.status}} </p>
+        </div>
+    </div>
+</div>
+
+<div ng-show="response.movie.production_companies.length > 0">
+    <h3>Production Companies</h3>
+    <div class="progress">
+        <div class="progress-bar progress-bar-info" style="width:100%"></div>
+    </div>
+
+    <div class="list-movie">
+        <table class="table table-striped table-hover ">
+            <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="companie in response.movie.production_companies  | orderBy:'release_date'">
+                <td>{{companie.name}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
+
+<ul class="pager">
+    <li class="previous "><a href="javascript:history.back(1)">← Return</a></li>
+</ul>
